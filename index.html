@@ -1,3 +1,6 @@
+Here's the updated HTML with a **WhatsApp Book Now button** added to your booking section. When clicked, it opens WhatsApp directly with a pre-filled message using your phone number.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +28,7 @@
             --safari-green: #2ECC71;
             --savanna-brown: #D35400;
             --gorilla-gray: #5D6D7E;
+            --whatsapp-green: #25D366;
         }
 
         body {
@@ -114,7 +118,7 @@
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('gate.jpg') no-repeat center center/cover;
+                        url('https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -170,6 +174,56 @@
         .btn-outline:hover {
             background: white;
             color: var(--primary);
+        }
+
+        /* WhatsApp Button Styles */
+        .btn-whatsapp {
+            background: var(--whatsapp-green);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .whatsapp-icon-svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: var(--whatsapp-green);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
         }
 
         /* Sections Common Styles */
@@ -365,7 +419,7 @@
         /* Booking Section */
         .booking {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('29.jpg') no-repeat center center/cover;
+                        url('https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
             color: white;
         }
 
@@ -432,6 +486,53 @@
 
         .booking-btn:hover {
             background: var(--secondary);
+        }
+
+        /* WhatsApp Booking Button */
+        .whatsapp-booking-btn {
+            width: 100%;
+            background: var(--whatsapp-green);
+            color: white;
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 1rem;
+        }
+
+        .whatsapp-booking-btn:hover {
+            background: #128C7E;
+        }
+
+        .or-divider {
+            text-align: center;
+            margin: 1.5rem 0;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .or-divider::before,
+        .or-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .or-divider::before {
+            left: 0;
+        }
+
+        .or-divider::after {
+            right: 0;
         }
 
         /* Testimonials Section */
@@ -916,6 +1017,8 @@
 
         .animate {
             animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
         }
 
         .delay-1 {
@@ -945,7 +1048,6 @@
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#booking">Book Now</a></li>
                     <li><a href="#contact">Contact</a></li>
-                     <li><a href="https://tusingwiredenis.github.io/safaris/">Bwinga-Safaris</a></li>
                 </ul>
             </nav>
         </div>
@@ -957,7 +1059,6 @@
             <p>Nkwenda-Buhoma Kanungu</p>
             <h1>Discover The African Experience</h1>
             <p>Buhomart with Passion offers a unique blend of crafts, art education, culinary delights, fitness, and unforgettable tours in the heart of Africa.</p>
-           <p>Travel with us <li><a href="https://tusingwiredenis.github.io/safaris/">Bwinga-Safaris</a></li> </p>
             <div class="btn-group">
                 <a href="#booking" class="btn">Book Now</a>
                 <a href="#about" class="btn btn-outline">Learn More</a>
@@ -975,7 +1076,7 @@
             <div class="about-content">
                 <div class="about-text animate">
                     <h3>Our Story</h3>
-                    <p>Founded by Ahumuza Justus Joe, Buhomart began as a small crafts shop and has grown into a comprehensive cultural hub that includes an art school, cafeteria, gym, charitable organization, and tour services.</p>
+                    <p>Founded by Ahumuza Justus, Buhomart began as a small crafts shop and has grown into a comprehensive cultural hub that includes an art school, cafeteria, gym, charitable organization, and tour services.</p>
                     <p>Our mission is to showcase the beauty of African culture while creating sustainable opportunities for local artisans, artists, and communities.</p>
                     <p>With a passion for preserving traditions and promoting healthy living, we've created a space where culture, creativity, and community come together in Nkwenda-Buhoma Kanungu.</p>
                     <a href="#services" class="btn">Our Services</a>
@@ -997,10 +1098,10 @@
             <div class="services-grid">
                 <div class="service-card animate">
                     <div class="service-img">
-                        <img src="jo.jpg" alt="African crafts">
+                        <img src="g5.jpg" alt="African crafts">
                     </div>
                     <div class="service-content">
-                        <h3> Buhomart Crafts Shop</h3>
+                        <h3>Crafts Shop</h3>
                         <p>Discover unique handmade African crafts, jewelry, textiles, and artifacts that celebrate our rich cultural heritage.</p>
                         <a href="#booking" class="btn">Visit Shop</a>
                     </div>
@@ -1027,7 +1128,7 @@
                 </div>
                 <div class="service-card animate">
                     <div class="service-img">
-                        <img src="add3.jpg" alt="Gym">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Gym">
                     </div>
                     <div class="service-content">
                         <h3>Gorrila Gym</h3>
@@ -1047,7 +1148,7 @@
                 </div>
                 <div class="service-card animate delay-2">
                     <div class="service-img">
-                        <img src="6.jpg" alt="African safari">
+                        <img src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="African safari">
                     </div>
                     <div class="service-content">
                         <h3>Tours & Travel</h3>
@@ -1081,13 +1182,13 @@
                     </div>
                 </div>
                 <div class="gallery-item animate delay-1">
-                    <img src="k2.jpg" alt="African crafts">
+                    <img src="crafts.jpg" alt="African crafts">
                     <div class="gallery-overlay">
                         <h3>Handmade Crafts</h3>
                     </div>
                 </div>
                 <div class="gallery-item animate delay-2">
-                    <img src="30.jpg" alt="African food">
+                    <img src="she.jpg" alt="African food">
                     <div class="gallery-overlay">
                         <h3>Traditional Cuisine</h3>
                     </div>
@@ -1105,7 +1206,7 @@
                     </div>
                 </div>
                 <div class="gallery-item animate delay-1">
-                    <img src="add1.jpg" alt="Gym workout">
+                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Gym workout">
                     <div class="gallery-overlay">
                         <h3>Gorrila Gym</h3>
                     </div>
@@ -1117,7 +1218,7 @@
                     </div>
                 </div>
                 <div class="gallery-item animate">
-                    <img src="h.jpg" alt="African wildlife">
+                    <img src="help.jpg" alt="African wildlife">
                     <div class="gallery-overlay">
                         <h3>Charity work</h3>
                     </div>
@@ -1129,7 +1230,7 @@
                     </div>
                 </div>
                 <div class="gallery-item animate">
-                    <img src="add4.jpg" alt="African wildlife">
+                    <img src="golila.jpg" alt="African wildlife">
                     <div class="gallery-overlay">
                         <h3>Wildlife Safari</h3>
                     </div>
@@ -1146,7 +1247,7 @@
                     </div>
                 </div>
                 <div class="gallery-item animate delay-1">
-                    <img src="f.jpg" alt="African market">
+                    <img src="lo.jpg" alt="African market">
                     <div class="gallery-overlay">
                         <h3>Local Markets</h3>
                     </div>
@@ -1213,6 +1314,23 @@
                     </div>
                     <button type="submit" class="booking-btn">Book Now</button>
                 </form>
+                
+                <div class="or-divider">OR</div>
+                
+                <!-- WhatsApp Direct Booking Button -->
+                <!-- REPLACE THE PHONE NUMBER BELOW WITH YOUR ACTUAL WHATSAPP NUMBER -->
+                <!-- Format: Country code without + or spaces (e.g., 256762218665 for Uganda number) -->
+                <a href="https://wa.me/256762218665?text=Hello%20Buhomart%21%20I%27m%20interested%20in%20booking%20a%20service.%20Please%20send%20me%20more%20information.%20Thank%20you%21" 
+                   class="whatsapp-booking-btn" 
+                   target="_blank">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.45-1.43c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm.01 15.66c-1.25 0-2.48-.33-3.55-.95l-.25-.15-3.23.85.86-3.15-.17-.26c-.68-1.04-1.04-2.24-1.04-3.48 0-3.58 2.92-6.5 6.51-6.5 1.74 0 3.38.68 4.61 1.91s1.91 2.87 1.91 4.61c0 3.59-2.92 6.52-6.51 6.52zm3.57-4.88c-.2-.1-1.17-.58-1.35-.64-.18-.07-.32-.1-.45.1-.14.2-.52.64-.64.78-.12.13-.24.14-.44.05-.2-.1-.84-.31-1.6-.98-.59-.53-.99-1.18-1.11-1.38-.12-.2-.01-.31.09-.41.09-.09.2-.24.3-.36.1-.12.13-.2.2-.34.07-.14.03-.27-.02-.38-.05-.11-.44-1.06-.61-1.45-.16-.38-.33-.33-.44-.34-.11-.01-.24-.01-.36-.01-.14 0-.35.05-.54.24-.19.2-.73.71-.73 1.74 0 1.03.75 2.03.86 2.17.11.14 1.48 2.27 3.59 3.18.5.22.9.35 1.21.45.51.16.97.14 1.34.09.41-.06 1.17-.48 1.34-.94.17-.46.17-.85.12-.93-.05-.08-.18-.13-.38-.23z"/>
+                    </svg>
+                    Book via WhatsApp
+                </a>
+                <p style="text-align: center; font-size: 12px; margin-top: 10px; color: #555;">
+                    Click to chat with us directly on WhatsApp
+                </p>
             </div>
         </div>
     </section>
@@ -1262,10 +1380,10 @@
             <div class="team-grid">
                 <div class="team-member animate">
                     <div class="team-img">
-                        <img src="j2.jpg" alt="Ahumuza Justus">
+                        <img src="jo.jpg" alt="Ahumuza Justus">
                     </div>
                     <div class="team-info">
-                        <h3>Ahumuza Justus JOE</h3>
+                        <h3>Ahumuza Justus</h3>
                         <p>Founder & CEO</p>
                         <div class="social-links">
                             <a href="#"><i class="fab fa-facebook"></i></a>
@@ -1277,7 +1395,7 @@
                 </div>
                 <div class="team-member animate delay-1">
                     <div class="team-img">
-                        <img src="808.jpg" alt="Nakato Sarah">
+                        <img src="k.jpg" alt="Nakato Sarah">
                     </div>
                     <div class="team-info">
                         <h3>Tusingwire Denis</h3>
@@ -1290,7 +1408,7 @@
                 </div>
                 <div class="team-member animate delay-2">
                     <div class="team-img">
-                        <img src="10.jpg" alt="Kato David">
+                        <img src="lky.jpg" alt="Kato David">
                     </div>
                     <div class="team-info">
                         <h3>Prossy</h3>
@@ -1415,9 +1533,18 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Buhomart with Passion. All Rights Reserved. | Designed by ,Den Tech</a></p>
+            <p>&copy; 2025 Buhomart with Passion. All Rights Reserved. | Designed by <a href="mailto:joeahumuza123@gmail.com">Den Tech</a></p>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp Button (visible on all pages) -->
+    <a href="https://wa.me/256762218665?text=Hello%20Buhomart%21%20I%20have%20a%20question%20about%20your%20services." 
+       class="whatsapp-float" 
+       target="_blank">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.45-1.43c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm.01 15.66c-1.25 0-2.48-.33-3.55-.95l-.25-.15-3.23.85.86-3.15-.17-.26c-.68-1.04-1.04-2.24-1.04-3.48 0-3.58 2.92-6.5 6.51-6.5 1.74 0 3.38.68 4.61 1.91s1.91 2.87 1.91 4.61c0 3.59-2.92 6.52-6.51 6.52zm3.57-4.88c-.2-.1-1.17-.58-1.35-.64-.18-.07-.32-.1-.45.1-.14.2-.52.64-.64.78-.12.13-.24.14-.44.05-.2-.1-.84-.31-1.6-.98-.59-.53-.99-1.18-1.11-1.38-.12-.2-.01-.31.09-.41.09-.09.2-.24.3-.36.1-.12.13-.2.2-.34.07-.14.03-.27-.02-.38-.05-.11-.44-1.06-.61-1.45-.16-.38-.33-.33-.44-.34-.11-.01-.24-.01-.36-.01-.14 0-.35.05-.54.24-.19.2-.73.71-.73 1.74 0 1.03.75 2.03.86 2.17.11.14 1.48 2.27 3.59 3.18.5.22.9.35 1.21.45.51.16.97.14 1.34.09.41-.06 1.17-.48 1.34-.94.17-.46.17-.85.12-.93-.05-.08-.18-.13-.38-.23z"/>
+        </svg>
+    </a>
 
     <!-- Back to Top Button -->
     <a href="#home" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
